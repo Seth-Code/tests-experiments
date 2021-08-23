@@ -84,6 +84,8 @@ class LinkedList {
       }
     }
   }
+
+  remove;
 }
 
 class Node {
