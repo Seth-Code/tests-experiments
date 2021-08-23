@@ -69,6 +69,21 @@ class LinkedList {
     }
     return null;
   }
+
+  searchRecursive(value) {
+    let currentNode = this.first;
+    return recursion(value);
+    function recursion(value) {
+      if (currentNode.value === value) {
+        return currentNode;
+      } else if (currentNode.next === null) {
+        return null;
+      } else {
+        currentNode = currentNode.next;
+        return recursion(value);
+      }
+    }
+  }
 }
 
 class Node {
@@ -88,4 +103,4 @@ list.append(3);
 list.prepend(0);
 list.prepend(-1);
 
-console.log(list.search(2));
+console.log(list.searchRecursive(8));
