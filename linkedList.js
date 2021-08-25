@@ -58,6 +58,13 @@ class LinkedList {
     }
   }
 
+  deleteFirstInstance(value) {
+    let instance = this.searchRecursive(value);
+    instance.prev.next = instance.next;
+    instance.next.prev = instance.prev;
+    instance = null;
+  }
+
   search(value) {
     let currentNode = this.first;
 
@@ -84,8 +91,6 @@ class LinkedList {
       }
     }
   }
-
-  remove;
 }
 
 class Node {
@@ -104,5 +109,6 @@ list.append(3);
 
 list.prepend(0);
 list.prepend(-1);
+list.deleteFirstInstance(1);
 
-console.log(list.searchRecursive(8));
+console.log(list.searchRecursive(1));
