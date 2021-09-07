@@ -6,9 +6,3 @@ var buildArray = function (nums) {
   return ans;
 };
 console.log(buildArray([0, 2, 1, 5, 3, 4]));
-
-var getConcatenation = function (nums) {
-  const ans = nums.concat(nums);
-  return ans;
-};
-console.log(getConcatenation([1, 2, 1]));
