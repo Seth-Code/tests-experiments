@@ -8,7 +8,7 @@ function restoreString(s, indices) {
     const index = indices[i];
     const item = sArray[i];
     shuffledArray[index] = item;
-    console.log(shuffledArray);
+    // console.log(shuffledArray);
   }
   const shuffled = shuffledArray.join("");
   return shuffled;
