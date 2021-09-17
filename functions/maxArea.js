@@ -42,13 +42,40 @@ function maxArea(height) {
   return max;
 }
 
-// make into linear solution
-function maxArea2(height) {
-  const length = height.length;
-  const hashMap = {};
+// //linear solution
+// function maxArea2(height) {
+//   const length = height.length;
+//   const hashMap = new Array(length);
 
-  for (let i = 0; i < length; i++) {
-    hashMap[height[i]] = i;
+//   //create hashMap
+//   for (let i = 0; i < length; i++) {
+//     const map = {};
+//     map.indexFromStart = i;
+//     map.indexFromEnd = length - i;
+//     map.height = height[i];
+//     hashMap[i] = map;
+//   }
+
+//   for (let i = 0; i < length; i++) {
+//     const item = height[i];
+
+//     //this solution is overly complex
+
+//   }
+// }
+
+//linear solution, 2 pointers
+function maxArea2(height) {
+  let left = 0,
+    right = height.length - 1,
+    max = 0;
+  while (left < right) {
+    max = Math.max(Math.min(height[left], height[right]) * (right - left), max);
+    if (height[left] < height[right]) left++;
+    else if (height[left] > height[right]) right--;
+    else left++, right--;
   }
+  return max;
 }
+
 console.log(maxArea2([1, 8, 6, 2, 5, 4, 8, 3, 7]));
