@@ -1,0 +1,2 @@
+# the one c++ experiment uses a massive dataset, which causes github to display the repo as predominantly c++, which is misleading
+*.cpp inguist-detectable=false
