@@ -31,52 +31,51 @@ function mergeTwoLists(l1, l2) {
 
   let head = null;
   let nextNode = null;
-  let listEnded = false;
+  let remainder = null;
+  let newNode = null;
 
-  while (l1 || l2) {
-    let l1Node = l1;
-    let l2Node = l2;
+  let l1Node = l1;
+  let l2Node = l2;
+  while (!remainder) {
     const smaller = Math.min(l1Node.val, l2Node.val);
     const bigger = Math.max(l1Node.val, l2Node.val);
 
     if (smaller === l1Node.val) {
       nextNode = l1Node.next;
-      if (nextNode === null) {
-        nextNode = l2Node.next;
-      }
     }
     if (smaller === l2Node.val) {
       nextNode = l2Node.next;
-      if (nextNode === null) {
-        nextNode = l1Node.next;
-      }
     }
 
     // if (nextNode === null) {
     //   const nextSmaller =
     // }
 
-    const nextSmaller = Math.min(bigger, nextNode.val);
-    const newNode = new Node(smaller, nextSmaller);
+    l1Node = l1Node.next;
+    l2Node = l2Node.next;
+
+    console.log("\n", l1Node, l2Node);
+
+    if (l1Node === null) {
+      remainder = l2Node;
+    }
+    if (l2Node === null) {
+      remainder = l1Node;
+    }
+
+    if (!remainder) {
+      nextSmaller = Math.min(bigger, nextNode.val);
+      newNode = new Node(smaller, nextSmaller);
+    } else {
+      newNode = new Node(smaller);
+    }
 
     if (!head) {
       head = newNode;
     }
-
-    l1 = l1.next;
-    l2 = l2.next;
-
-    // if (l1 === null) {
-    //   remainder = l2;
-    // }
-    // if (l2 === null) {
-    //   remainder = l1;
-    // }
-
-    // if (remainder) {
-
-    // }
   }
+
+  currentNode.next = remainder;
 
   return head;
 }
