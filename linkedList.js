@@ -1,3 +1,11 @@
+class Node {
+  constructor(value, prev, next) {
+    this.value = value;
+    this.prev = prev || null;
+    this.next = next || null;
+  }
+}
+
 class LinkedList {
   constructor() {
     this.first = null;
@@ -90,14 +98,6 @@ class LinkedList {
         return recursion(value);
       }
     }
-  }
-}
-
-class Node {
-  constructor(value, prev, next) {
-    this.value = value;
-    this.prev = prev || null;
-    this.next = next || null;
   }
 }
 
